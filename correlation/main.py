@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv(r"correlation\test.csv")
+path = r"C:\Users\wilsen\OneDrive\Desktop\self made models\correlation\ "
 
 def corr(data_frame):
     
@@ -21,7 +22,8 @@ def corr(data_frame):
     r_top = ((n*xy) - (x*y))
     r_bottom = (np.sqrt((n*(x2)-(x**2))) * (np.sqrt(n*(y2)-(y**2))))
     r = r_top/r_bottom
-    path = r"C:\Users\wilsen\OneDrive\Desktop\self made models\correlation\ "
+    
+    
 
     df.to_csv(path+'result.csv',index = False)
     return print(r)

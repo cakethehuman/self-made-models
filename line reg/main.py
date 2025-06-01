@@ -5,12 +5,31 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv(r"C:\Users\wilsen\OneDrive\Desktop\self made models\line reg\data_corr.csv")
 
-def linear_regression(x_train,y_train):
-    x = df.iloc[:,0].sum()
-    y = df.iloc[:,1].sum()
-    df["x2"]  = (df.iloc[:,0]**2).sum()
-    df["xy"] = (df.iloc[:,0] * df.iloc[:,1]).sum()
-    print(df)
+
+    
+def a_calculation(n,x,y,x2,xy):
+    a_top = ((y*x2) - (x*xy))
+    a_bottom = ((n*x2) - (x**2))
+    a = a_top/a_bottom
+    print(a)
+
+def b_calculation(n,x,y,x2,xy):
+    print("ho")
+
+def linear_regression(data_frame,x_train,y_train):
+    n = data_frame.shape[0]
+    x = data_frame[x_train].sum()
+    y = data_frame[y_train].sum()
+    data_frame["x2"]  = (data_frame[x_train]**2)
+    data_frame["xy"] = (data_frame[x_train] * data_frame[y_train])
+    x2 = data_frame["x2"].sum()
+    xy = data_frame["xy"].sum()
+    
+    a_calculation(n,x,y,x2,xy)
+    b_calculation(n,x,y,x2,xy)
+
+
+
     
 
-linear_regression(df,df)
+linear_regression(df,"study_hour","grade")
